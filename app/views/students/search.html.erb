@@ -1,0 +1,9 @@
+<h3>Search Results</h3>
+<table>
+	<tr><th>Name</th>
+		<th>Show</th></tr>
+	<% @results.each do |re| %>
+		<tr><td><%= re.name%></td>
+		<td><%= link_to 'show',student_path(re) %></td></tr>
+	<%end%>
+</table>

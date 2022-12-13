@@ -1,0 +1,10 @@
+<h1> Course </h1>
+<table>
+	<tr><th>Name</th><th>Duration</th></tr>
+	<% @courses.each do |c| %>
+		<tr><td><%= c.name%></td>
+		<td><%= c.duration%></td></tr>
+	<%end%>
+
+</table>
+<%= link_to 'Add Course' , new_course_path%>

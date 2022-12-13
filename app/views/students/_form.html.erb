@@ -1,0 +1,26 @@
+<%= form_with(model: student) do |form| %>
+  <% if student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+        <% student.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div><br><br>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div><br><br>
+
+    <%= form.label :course %>
+    <%= form.select :course_id, options_for_select(Course.all.map{|b| [b.name, b.id]}) %><br>
+  </div><br><br>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

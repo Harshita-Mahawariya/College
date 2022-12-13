@@ -1,0 +1,20 @@
+<h1> Student </h1>
+<%= form_tag(search_students_path, :method => "get") do %>
+<div class="input-group">
+	<%= search_field_tag :search, params[:search], placeholder: "Type", class: "form-control" %>
+	<br><br>
+	<div class="input-group-btn">
+		<%= button_tag "Search" , :class => 'btn btn-info glyphicon glyphicon-search', :name => nil %>
+	</div>
+</div><br><br>
+<%end%>
+
+<table>
+	<tr><th>Name</th><th>Course</th></tr>
+	<% @students.each do |st| %>
+		<tr><td><%= st.name%></td>
+		<td><%= link_to 'show',student_path(st) %></td></tr>
+	<%end%>
+
+</table>
+<%= link_to 'Add Student' , new_student_path%>
